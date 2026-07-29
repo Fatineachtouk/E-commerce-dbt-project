@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: dev
+    schema : main
+
+    tables:
+      - name: orders
+      - name : events
+      - name : inventory_items
+      - name : products
+      - name : users
+      - name : order_items
