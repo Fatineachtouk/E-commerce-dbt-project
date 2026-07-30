@@ -1,0 +1,81 @@
+version: 2
+
+models:
+  - name: customers
+    description: Data mart for customer-related dimensions and facts, for analytical and reporting purposes
+    columns:
+      - name: customer_id
+        description: Unique ID for the user
+        data_tests:
+          - unique
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg__users')
+                field: id
+      - name: first_name
+        description: Customer first name
+        data_tests:
+          - not_null
+      - name: last_name
+        description: Customer last name
+        data_tests:
+          - not_null
+      - name: country
+        description: Customer country
+      - name: gender
+        description: Customer gender
+      - name: traffic_source
+        description: Customer acquisition channel
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Display', 'Email', 'Facebook', 'Organic', 'Search']
+      - name: total_amount_spent 
+        description: Total amount customer has spent
+      - name: total_items_purchased
+        description: Total items purchased
+      - name: first_order_at
+        description: When the first order was completed at, if at all
+      - name: last_order_at
+        description: When the last order was completed at, if at all
+      - name: num_orders
+        description: Total number of orders placed
+      - name: orders_shipped
+        description: Number of orders shipped
+      - name: orders_complete
+        description: Number of orders completed
+      - name: orders_processing
+        description: Number of orders still processing
+      - name: orders_cancelled
+        description: Number of orders cancelled
+      - name: orders_returned
+        description: Number of orders returned
+      - name: num_sessions
+        description: Number of web sessions
+
+  - name: product
+    description: Data mart for product-related dimensions and facts, for analytical and reporting purposes
+    columns:
+      - name: product_id
+        description: Unique ID for the product
+        data_tests:
+          - unique
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg__products')
+                field: id
+      - name: product_name
+        description: Product name
+      - name: product_category
+        description: Product category
+        data_tests:
+          - not_null
+      - name: sales_amount
+        description: Total sales amount attributed to this product
+      - name: cost_of_goods_sold
+        description: Total cost of goods sold attributed to this product
+      - name: profit
+        description: Profit, calculated by sales amount minus cost of goods sold
