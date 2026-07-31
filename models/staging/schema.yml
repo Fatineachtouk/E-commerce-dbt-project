@@ -219,6 +219,8 @@ models:
           - not_null
       - name: cost
         description: Product cost
+        data_tests:
+          - non_negative
       - name: category
         description: Product category
       - name: name

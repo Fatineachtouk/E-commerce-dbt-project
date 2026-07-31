@@ -34,26 +34,40 @@ models:
                 values: ['Display', 'Email', 'Facebook', 'Organic', 'Search']
       - name: total_amount_spent 
         description: Total amount customer has spent
-      - name: total_items_purchased
-        description: Total items purchased
+        data_tests:
+          - non_negative
       - name: first_order_at
         description: When the first order was completed at, if at all
       - name: last_order_at
         description: When the last order was completed at, if at all
       - name: num_orders
         description: Total number of orders placed
+        data_tests:
+          - non_negative
       - name: orders_shipped
         description: Number of orders shipped
+        data_tests:
+          - non_negative
       - name: orders_complete
         description: Number of orders completed
+        data_tests:
+          - non_negative
       - name: orders_processing
         description: Number of orders still processing
+        data_tests:
+          - non_negative
       - name: orders_cancelled
         description: Number of orders cancelled
+        data_tests:
+          - non_negative
       - name: orders_returned
         description: Number of orders returned
+        data_tests:
+          - non_negative
       - name: num_sessions
         description: Number of web sessions
+        data_tests:
+          - non_negative
 
   - name: product
     description: Data mart for product-related dimensions and facts, for analytical and reporting purposes
@@ -75,7 +89,11 @@ models:
           - not_null
       - name: sales_amount
         description: Total sales amount attributed to this product
-      - name: cost_of_goods_sold
+        data_tests:
+          - non_negative
+      - name: cogs
         description: Total cost of goods sold attributed to this product
+        data_tests:
+          - non_negative
       - name: profit
         description: Profit, calculated by sales amount minus cost of goods sold
