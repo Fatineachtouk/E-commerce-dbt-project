@@ -4,6 +4,24 @@ An end-to-end dbt project that transforms raw e-commerce data into analytics-rea
 
 ---
 
+- [Project Overview](#project-overview)
+- [Tech Stack](#tech-stack)
+- [Project Architecture](#project-architecture)
+- [Data Model](#data-model)
+- [Loading the Data](#loading-the-data)
+- [Staging Layer](#staging-layer)
+- [Mart Models](#mart-models)
+  - [Customers](#customers)
+  - [Product](#product)
+- [Snapshots](#snapshots)
+- [Data Quality](#data-quality)
+  - [Generic Tests](#generic-tests)
+  - [Custom Generic Test](#custom-generic-test)
+  - [Singular Tests](#singular-tests)
+- [Running the Project](#running-the-project)
+- [Project Structure](#project-structure)
+
+
 ## Project Overview
 
 This project builds an analytics pipeline for an e-commerce dataset using **dbt**.
