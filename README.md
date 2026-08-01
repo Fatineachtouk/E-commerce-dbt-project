@@ -1,6 +1,6 @@
 # E-Commerce Analytics Pipeline with dbt
 
-An end-to-end dbt project that transforms raw e-commerce data into analytics-ready models using staging, snapshots, testing, and documentation.
+A dbt project that transforms raw e-commerce data into analytics-ready models using staging, snapshots, and testing.
 
 ---
 
