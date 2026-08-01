@@ -18,14 +18,13 @@ An end-to-end dbt project that transforms raw e-commerce data into analytics-rea
   - [Generic Tests](#generic-tests)
   - [Custom Generic Test](#custom-generic-test)
   - [Singular Tests](#singular-tests)
-- [Running the Project](#running-the-project)
 - [Project Structure](#project-structure)
 
 ---
 
 ## Project Overview
 
-This project builds an analytics pipeline for an e-commerce dataset using **dbt**.
+This project builds a data pipeline for an e-commerce dataset using **dbt**.
 
 The raw data is provided as CSV files and represents data such as customers, products, orders, inventory, and website events. The goal is to transform these raw datasets into clean, documented, and tested analytical models that can answer business questions about customers and products.
 
@@ -49,7 +48,7 @@ The project follows this dbt workflow:
 
 ![Pipeline Architecture](images/pipeline.png)
 
-Raw CSV files are first loaded into DuckDB. Then dbt builds staging models to standardize the data before creating marts and snapshots to track history.
+Raw CSV files are first loaded into DuckDB. Then dbt builds staging models before creating marts and snapshots to track history.
 
 ## Entity Relationship Diagram
 
