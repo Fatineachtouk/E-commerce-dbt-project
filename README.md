@@ -21,6 +21,7 @@ An end-to-end dbt project that transforms raw e-commerce data into analytics-rea
 - [Running the Project](#running-the-project)
 - [Project Structure](#project-structure)
 
+---
 
 ## Project Overview
 
@@ -46,7 +47,7 @@ https://www.kaggle.com/datasets/chiraggivan82/ecommerce-bigquery
 
 The project follows this dbt workflow:
 
-(img)
+![Pipeline Architecture](images/pipeline.png)
 
 Raw CSV files are first loaded into DuckDB. Then dbt builds staging models to standardize the data before creating marts and snapshots to track history.
 
@@ -56,7 +57,7 @@ The source dataset contains customer, order, inventory, product and event inform
 
 The following diagram shows the relationships between the different tables.
 
-(img)
+![Entity Relationship Diagram](images/erd.png)
 
 ## Loading the Data
 
@@ -64,7 +65,7 @@ The dataset is distributed as CSV files.
 
 Since the `distribution_centers.csv` file contains only **10 rows** and its data is slow changing, it is loaded as a **dbt seed**.
 
-The remaining datasets are significantly larger and are first loaded into **DuckDB**, where they are defined as dbt **sources**.
+The remaining datasets are significantly larger and fast changing therefore they are first loaded into **DuckDB**, where they are defined as dbt **sources**.
 
 ### Why DuckDB?
 
@@ -84,6 +85,8 @@ Two analytical marts were created:
 
 - Customers
 - Product
+
+![Marts tables](images/marts.png)
 
 These marts are designed to answer common business questions while providing clean datasets for reporting.
 
