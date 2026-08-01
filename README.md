@@ -57,7 +57,7 @@ The source dataset contains customer, order, inventory, product and event inform
 
 The following diagram shows the relationships between the different tables.
 
-![Entity Relationship Diagram](images/erd.png)
+![Entity Relationship Diagram](images/ERD.png)
 
 ## Loading the Data
 
@@ -92,17 +92,13 @@ These marts are designed to answer common business questions while providing cle
 
 ### Customers
 
-**Grain**
-
-One row per customer.
+**Grain :** One row per customer.
 
 The model combines customer information with order history and session activity to provide customer-level metrics.
 
 ### Product
 
-**Grain**
-
-One row per product.
+**Grain :** One row per product.
 
 The model aggregates sales information at the product level.
 
@@ -114,7 +110,7 @@ Two snapshots were created to preserve historical changes.
 
 Tracks changes in the order status.
 
-Whenever an order status changes, dbt records a new version of that row, allowing historical analysis of the order lifecycle.
+Whenever an order status changes, dbt records a new version of that row.
 
 ### Users Snapshot
 
@@ -139,14 +135,14 @@ The project includes both generic and custom tests to ensure data quality.
 
 ### Generic Tests
 
-The following built-in dbt tests are used:
+The following dbt tests are used:
 
 - unique
 - not_null
 - accepted_values
 - relationships
 
-These tests validate primary keys, mandatory fields, valid categorical values, and referential integrity between models.
+These tests validate primary keys, mandatory fields, valid categorical values (acceptd values), and referential integrity between models (relationships).
 
 ### Custom Generic Test
 
@@ -183,5 +179,5 @@ Examples include:
 ├── tests/
 ├── dbt_project.yml
 ├── dev.duckdb   # The Database where all tables and views are stored
-|── load_data.py  # to load data into DuckDB
+|── load_data.py  #To load the source data into DuckDB.
 └── README.md
